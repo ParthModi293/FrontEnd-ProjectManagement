@@ -1,7 +1,9 @@
 import { IconButton, Menu, MenuItem } from '@mui/material'
 import React, { useState } from 'react'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
-import UserList from '../UserList'
+import UserList from './UserList'
+import SubmissionList from './SubmissionList'
+import EditTaskForm from './EditTaskcard'
 
 const role = "ROLE_ADMIN"
 const TaskCard = () => {
@@ -15,8 +17,6 @@ const TaskCard = () => {
   };
 
   const [openUserList, setOpenUserList]=useState(false);
-
-  
   const handleCloseUserList= ()=>{
     setOpenUserList(false);
     }
@@ -27,18 +27,33 @@ setOpenUserList(true);
 handleMenuClose()
 }
 
+
+
+
+const [openSubmisionList, setOpenSubmissionList]=useState(false);
+  const handleCloseSubmissionList= ()=>{
+    setOpenSubmissionList(false);
+    }
+
 const handleOpenSubmisionList= ()=>{
-    
+    setOpenSubmissionList(true);
+handleMenuClose()
 }
 
 
+const [openUpdateTaskForm, setOpenUpdateTaskForm]=useState(false);
+  const handleCloseUpdateTaskForm= ()=>{
+    setOpenUpdateTaskForm(false);
+    }
 const handleOpenUpdateTaskModel= ()=>{
-    
+    setOpenUpdateTaskForm(true);
+handleMenuClose()
 }
 
 
 const handleDeleteTask= ()=>{
-    
+    handleMenuClose()
+
 }
 
 
@@ -102,6 +117,9 @@ const handleDeleteTask= ()=>{
         </div>
 
 <UserList open={openUserList} handleClose={handleCloseUserList}/>
+<SubmissionList open={openSubmisionList} handleClose={handleCloseSubmissionList}/>
+<EditTaskForm open={openUpdateTaskForm} handleClose={handleCloseUpdateTaskForm}/>
+
 
 
 

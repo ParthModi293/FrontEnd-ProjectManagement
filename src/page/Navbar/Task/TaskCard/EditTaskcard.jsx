@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function UserList({handleClose,open}) {
+export default function EditTaskForm({handleClose,open}) {
  
  
 
@@ -30,11 +30,9 @@ export default function UserList({handleClose,open}) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            Edit Task Form
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+         
         </Box>
       </Modal>
     </div>
