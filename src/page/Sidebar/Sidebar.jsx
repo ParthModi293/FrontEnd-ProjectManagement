@@ -1,7 +1,7 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
 import "./Sidebar.css";
-import CreateNewTaskForm from "../Task/TaskCard/CreateTask";
+import CreateNewTaskForm from "../Task/CreateTask";
 
 
 const menu=[
@@ -31,7 +31,7 @@ const [openCreateTaskForm, setOpenCreateTaskForm]=useState(false);
   };
 
 const handleMenuChange=(item)=>{
-  if(item.name=="Create New Task"){
+  if(item.name==="Create New Task"){
     handleOpenCreateTaskModel()
   }
   setActiveMenu(item.name)
