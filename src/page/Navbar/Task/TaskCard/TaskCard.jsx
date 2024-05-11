@@ -48,7 +48,7 @@ const [openUpdateTaskForm, setOpenUpdateTaskForm]=useState(false);
 const handleOpenUpdateTaskModel= ()=>{
     setOpenUpdateTaskForm(true);
 handleMenuClose()
-}
+};
 
 
 const handleDeleteTask= ()=>{
