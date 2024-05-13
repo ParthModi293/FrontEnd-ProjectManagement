@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
 import { Autocomplete, Grid, TextField } from '@mui/material';
@@ -63,7 +63,7 @@ setFormData({
             $s: seconds,
             $ms: milliseconds,
 
-    }=input;
+    } = input;
 
     const date= new Date(year,month,day,hours,minutes,seconds,milliseconds);
     const formatedDate = date.toISOString();
@@ -71,12 +71,12 @@ setFormData({
  }
 
  const handleSubmit=(e)=>{
-e.preventDefault();
-const {deadline}=formData;
-formData.deadline=formateDate(deadline)
-formData.tags=selectedTags
-console.log("formData",formData,"deadline",formData.deadline) 
-handleClose()
+    e.preventDefault();
+    const {deadline}=formData;
+    formData.deadline=formateDate(deadline)
+    formData.tags=selectedTags
+    console.log("formData",formData,"deadline",formData.deadline) 
+handleClose();
 
  }
 

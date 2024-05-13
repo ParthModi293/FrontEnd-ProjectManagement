@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './Auth.css';
+import Signin from './Signin';
+import Signup from './Signup';
 
 const Auth = () => {
 
 
-const [isRegister,setIsRegister]=useState(true);
+const [isRegister,setIsRegister]=useState(false);
 const togglePanel=()=>{
   setIsRegister(!isRegister);
 };
@@ -16,11 +18,11 @@ const togglePanel=()=>{
       <div className='box lg:max-w-4xl'>
       <div className={`cover ${isRegister?"rotate-active":""}`}>
         <div className='front'>
-          <img src="https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg" alt=""  />
+          <img src="https://cdn.pixabay.com/photo/2019/05/26/22/40/night-sea-4231466_640.jpg" alt=""  />
           <div className='text'>
 
-          <span className='text-1'>Just Focus On Your Own-Self</span>
-          <span className='text-2 text-xs'>Just Be Selfish</span>
+          <span className='text-1'>"Make Your Miracle"</span>
+          
           </div>
         </div>
 
@@ -32,10 +34,10 @@ const togglePanel=()=>{
           <div className='forms h-full'>
               <div className='form-content h-full'>
                 <div className='login-form'>
-                  SignIn Form
+                  <Signin togglePanel={togglePanel}/>
                 </div>
                 <div className='signup-form'>
-                  SignUp Form
+                  <Signup togglePanel={togglePanel}/>
                 </div>
 
               </div>
