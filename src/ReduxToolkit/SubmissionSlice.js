@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { setAuthHeader } from "../api/api";
+import { api, setAuthHeader } from "../api/api";
 
 export const submitTask = createAsyncThunk("submissions/submitTask",
     async({taskId,githubLink})=>{
