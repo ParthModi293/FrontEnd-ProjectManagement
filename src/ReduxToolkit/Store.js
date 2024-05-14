@@ -3,10 +3,12 @@ import { thunk } from "redux-thunk";
 // const { default: AuthSlice } = require("./AuthSlice");
 import authReducer from "./AuthSlice"
 import TaskSlice from "./TaskSlice";
+import SubmissionSlice from "./SubmissionSlice";
 
 const rootReducer=combineReducers({
     auth:authReducer,
-    task:TaskSlice
+    task:TaskSlice,
+    submission:SubmissionSlice
 })
 
 const store=configureStore({
