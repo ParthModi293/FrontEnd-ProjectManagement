@@ -21,7 +21,7 @@ console.log("task",task);
     <div className='w-[67vw]'>
         <div className='space-y-3'>
             {
-                [1,1,1,1].map((item)=><TaskCard/>)
+                task.tasks.map((item)=><TaskCard item={item}/>)
             }
         </div>
     </div>
