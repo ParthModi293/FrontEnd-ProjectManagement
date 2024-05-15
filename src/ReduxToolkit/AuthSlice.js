@@ -53,7 +53,7 @@ export const logout = createAsyncThunk("auth/logout", async(userData)=>{
 export const getUserProfile = createAsyncThunk("auth/getUserProfile", async(jwt)=>{
     setAuthHeader(jwt,api)
     try {
-        alert("hello")
+       
             const {data}= await api.get(`/api/users/profile`)
             console.log("User Profile Success",data)
             return data;
@@ -96,7 +96,7 @@ const authSlice = createSlice({
         jwt:null,
         users:[]
     },
-    reducers:{},
+    reducer:{},
     extraReducers:(builder)=>{
         builder
         .addCase(login.pending,(state)=>{

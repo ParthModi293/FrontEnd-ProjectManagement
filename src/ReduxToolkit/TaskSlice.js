@@ -178,6 +178,11 @@ const taskSlice=createSlice({
             })
 
 
+            .addCase(fetchTasksById.fulfilled,(state,action)=>{
+                state.loading=false;
+                state.taskDetails=action.payload;
+            })
+
 
             .addCase(createTask.pending,(state)=>{
                 state.loading=true;
