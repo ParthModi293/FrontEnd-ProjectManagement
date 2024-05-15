@@ -21,7 +21,7 @@ const Signin = ({togglePanel}) => {
     const handleSubmit=(e)=>{
         e.preventDefault();
         dispatch(login(formData))
-        console.log("login form",formData);
+        console.log("login form", formData);
     }
 
 

@@ -1,20 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux'
+
 import TaskCard from '../Task/TaskCard/TaskCard'
+
+import { getUserProfile } from '../../ReduxToolkit/AuthSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchTasks } from '../../ReduxToolkit/TaskSlice';
-import { getUserProfile } from '../../ReduxToolkit/AuthSlice';
 
 
 const TaskList = () => {
-
 
 const dispatch = useDispatch();
 const {task} = useSelector(store=>store)
 
 useEffect(()=>{
-  dispatch(fetchTasks({}));
-  
-},[]);
+  dispatch(fetchTasks({}))
+}, [])
 
 console.log("task",task);
   return (

@@ -5,8 +5,9 @@ import { BASE_URL, api, setAuthHeader } from "../api/api";
 export const login = createAsyncThunk("auth/login", async(userData)=>{
     try {
             const {data}= await axios.post(`${BASE_URL}/auth/signin`,userData)
+           
             localStorage.setItem("jwt",data.jwt);
-            console.log("login SUccess",data)
+            console.log("login Success",data)
             return data;
 
 
@@ -21,7 +22,7 @@ export const register = createAsyncThunk("auth/register", async(userData)=>{
     try {
             const {data}= await axios.post(`${BASE_URL}/auth/signup`,userData)
             localStorage.setItem("jwt",data.jwt);
-            console.log("Register SUccess",data)
+            console.log("Register Success",data)
             return data;
 
 
@@ -48,9 +49,11 @@ export const logout = createAsyncThunk("auth/logout", async(userData)=>{
 })
 
 
+
 export const getUserProfile = createAsyncThunk("auth/getUserProfile", async(jwt)=>{
     setAuthHeader(jwt,api)
     try {
+        alert("hello")
             const {data}= await api.get(`/api/users/profile`)
             console.log("User Profile Success",data)
             return data;

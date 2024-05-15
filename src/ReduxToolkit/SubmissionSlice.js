@@ -73,7 +73,7 @@ export const fetchSubmissionsByTaskId = createAsyncThunk("submissions/fetchSubmi
 
 
     }
-)
+);
 
 export const acceptDeclineSubmission = createAsyncThunk("submissions/acceptDeclineSubmission",
     async({id,status})=>{
@@ -108,11 +108,11 @@ const submissionSlice= createSlice({
         status:'',
         error:null,
     },
-    reducers:{},
+    reducers: {},
     extraReducers:(builder)=>{
         builder
         .addCase(submitTask.pending,(state)=>{
-            state.status='loading'
+            state.status='loading';
         })
         .addCase(submitTask.fulfilled,(state,action)=>{
             state.status='succeeded';
@@ -120,7 +120,7 @@ const submissionSlice= createSlice({
         })
         .addCase(submitTask.rejected,(state,action)=>{
             state.status='failed';
-            state.error= action.error.code.message;
+            state.error= action.error.message;
         })
 
 
@@ -131,7 +131,7 @@ const submissionSlice= createSlice({
         })
         .addCase(fetchAllSubmissions.rejected,(state,action)=>{
             state.status='failed';
-            state.error= action.error.code.message;
+            state.error= action.error.message;
         })
 
 
@@ -142,7 +142,7 @@ const submissionSlice= createSlice({
 
         .addCase(acceptDeclineSubmission.fulfilled,(state,action)=>{
             state.status='succeeded';
-            state.submissions= state.submissions.map((item)=>item.id!=action.payload.id ?item : action.payload);
+            state.submissions= state.submissions.map((item)=>item.id!==action.payload.id ?item : action.payload);
         });
 
     },

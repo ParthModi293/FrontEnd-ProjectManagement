@@ -28,7 +28,7 @@ export const fetchUsersTasks= createAsyncThunk("task/fetchUsersTasks",
             const {data}= await api.get("/api/tasks/user",{
                 params:{status}
             });
-            console.log("fetch tasks: ",data)
+            console.log("fetch users tasks: ",data)
             return data;
         } catch (error) {
             console.log("error",error)
@@ -42,12 +42,12 @@ export const fetchUsersTasks= createAsyncThunk("task/fetchUsersTasks",
 
 
 export const fetchTasksById= createAsyncThunk("task/fetchTasksById",
-    async({taskId})=>{
+    async(taskId)=>{
         setAuthHeader(localStorage.getItem("jwt"),api)
 
         try {
             const {data}= await api.get(`/api/tasks/${taskId}`);
-            console.log("fetch tasks: ",data)
+            console.log("fetch tasks by Id ",data)
             return data;
         } catch (error) {
             console.log("error",error)
@@ -61,7 +61,7 @@ export const fetchTasksById= createAsyncThunk("task/fetchTasksById",
 
 
 export const createTask= createAsyncThunk("task/createTask",
-    async({taskData})=>{
+    async(taskData)=>{
         setAuthHeader(localStorage.getItem("jwt"),api)
 
         try {
@@ -86,7 +86,7 @@ export const updateTask= createAsyncThunk("task/updateTask",
 
         try {
             const {data}= await api.put(`/api/tasks/${id}`, updatedtaskData);
-            console.log("update task: ",data)
+            console.log("updated task: ",data)
             return data;
         } catch (error) {
             console.log("error",error)
@@ -123,7 +123,7 @@ export const deleteTask= createAsyncThunk("task/deleteTask",
 
         try {
             const {data}= await api.delete(`/api/tasks/${taskId}`);
-            console.log("deleted task: ")
+            console.log("delete task successfully: ")
             return taskId;
         } catch (error) {
             console.log("error",error)
@@ -145,8 +145,9 @@ const taskSlice=createSlice({
             usersTask:[]
 
         },
-        reducers:{},
+        reducer:{},
         extraReducers:(builder)=>{
+            
             builder
             .addCase(fetchTasks.pending,(state)=>{
                 state.loading=true;
@@ -197,7 +198,7 @@ const taskSlice=createSlice({
                 const updatedTask=action.payload;
                 state.loading=false;
                 state.tasks=state.tasks.map((task)=>
-                task.id===updatedTask.id ? { ...task, ...updatedTask}:task
+                task.id===updatedTask.id ? { ...task, ...updatedTask }:task
                 
                 );
             })
