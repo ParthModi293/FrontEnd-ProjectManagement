@@ -3,10 +3,17 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { Button, IconButton } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
+import { useDispatch } from "react-redux";
+import { acceptDeclineSubmission } from "../../../ReduxToolkit/SubmissionSlice";
 
-const SubmissionCard = () => {
+const SubmissionCard = ({item}) => {
+
+  const dispatch = useDispatch();
+
+
   const handleAcceptDecline = (status) => {
-    alert(status);
+
+    dispatch(acceptDeclineSubmission({id:item.id,status}))
   };
 
   return (
@@ -17,7 +24,7 @@ const SubmissionCard = () => {
           <div className="flex items-center gap-2 text-[#c24dd0]">
             <OpenInNewIcon />
             <a
-              href="https://github.com/ParthModi293/Learning-Portal"
+              href={item.githubLink}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -28,11 +35,11 @@ const SubmissionCard = () => {
 
         <div className="flex text-center gap-2 text-xs">
           <p>Submission Time: </p>
-          <p className="text-gray-400">2024-05-10</p>
+          <p className="text-gray-400">{item.submissionTime}</p>
         </div>
       </div>
       <div>
-        {true ? (
+        {item.status=="PENDING" ? (
           <div className="flex gap-5">
             <div className="text-green-500">
               <IconButton
@@ -52,8 +59,8 @@ const SubmissionCard = () => {
             </div>
           </div>
         ) : (
-          <Button color={true ? "success" : "error"} size="small">
-            Accept
+          <Button color={item.status==="ACCEPTED" ? "success" : "error"} size="small">
+            {item.status}
           </Button>
         )}
       </div>

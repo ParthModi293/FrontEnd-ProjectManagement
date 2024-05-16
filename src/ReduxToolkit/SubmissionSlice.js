@@ -4,7 +4,7 @@ import { api, setAuthHeader } from "../api/api";
 export const submitTask = createAsyncThunk("submissions/submitTask",
     async({taskId,githubLink})=>{
 
-        setAuthHeader(localStorage.getItem("jwt",api));
+        setAuthHeader(localStorage.getItem("jwt"),api);
         
         try {
 
@@ -29,12 +29,12 @@ export const submitTask = createAsyncThunk("submissions/submitTask",
 export const fetchAllSubmissions = createAsyncThunk("submissions/fetchAllSubmissions",
     async()=>{
 
-        setAuthHeader(localStorage.getItem("jwt",api));
+        setAuthHeader(localStorage.getItem("jwt"),api);
         
         try {
 
             const{data} = await api.get(
-                `/api/submissions`,{}
+                `/api/submissions`
             );  
             console.log( "submitted task", data);
             return data;
@@ -78,7 +78,7 @@ export const fetchSubmissionsByTaskId = createAsyncThunk("submissions/fetchSubmi
 export const acceptDeclineSubmission = createAsyncThunk("submissions/acceptDeclineSubmission",
     async({id,status})=>{
 
-        setAuthHeader(localStorage.getItem("jwt",api));
+        setAuthHeader(localStorage.getItem("jwt"),api);
         
         try {
 
